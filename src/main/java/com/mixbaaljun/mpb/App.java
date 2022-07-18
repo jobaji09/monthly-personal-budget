@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-public class HelloApplication extends Application {
+public class App extends Application {
 
     private static String titlename = "Tu presupuesto personal mensual";
 
@@ -17,8 +17,10 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("earnings-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+
+        scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
         URL url = getClass().getResource("images/icon.png");
         System.out.println(url);
