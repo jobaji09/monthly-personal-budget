@@ -1,23 +1,26 @@
 package com.mixbaaljun.mpb.controller;
 
-import com.mixbaaljun.mpb.Income;
-import com.mixbaaljun.mpb.IncomeType;
 import com.mixbaaljun.mpb.component.ExpectedIncome;
 import com.mixbaaljun.mpb.component.IncomeToAdd;
+import com.mixbaaljun.mpb.incomes.domain.Income;
+import com.mixbaaljun.mpb.incomes.domain.IncomeType;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 import java.math.BigDecimal;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
+
 
 
 public class EarningsViewController implements Initializable {
@@ -30,6 +33,14 @@ public class EarningsViewController implements Initializable {
     @FXML
     private VBox incomeExpectedList;
 
+    @FXML
+    private Label totalIncomeLabel;
+
+    @FXML
+    private Button ready;
+
+    private BigDecimal totalIncomeToAdd;
+
     private List<IncomeType> earningTypes;
 
     private List<Income> expectedIncomes;
@@ -41,7 +52,15 @@ public class EarningsViewController implements Initializable {
                 new IncomeType("Bonificaciones"),
                 new IncomeType("Intereses")));
         this.expectedIncomes = new ArrayList<>();
+        this.totalIncomeLabel.setText("Total: $0.0");
+        this.totalIncomeToAdd = BigDecimal.ZERO;
+        this.ready.setOnAction(this::saveTotalExpectedIncomes);
+        
         this.toIncomeExpectedList();
+    }
+
+    private void saveTotalExpectedIncomes(ActionEvent event){
+        System.err.println("Hola");
     }
 
     private void ok(String type) {
@@ -57,16 +76,28 @@ public class EarningsViewController implements Initializable {
         IncomeType typeToDelete = ((ExpectedIncome) toDelete).getIncomeType();
         earningTypes.remove(typeToDelete);
 
-        this.expectedIncomes.add(earning);
+        this.updateExpectedIncomes(earning);
+        this.updateTotalExpectedIncome((total)->this.totalIncomeToAdd = total.add(earning.getExpectedAmount()));
+
+        this.ok(earning.getType().getName());
+
+    }
+
+    private void updateTotalExpectedIncome(Consumer<BigDecimal> consumer){
+        consumer.accept(this.totalIncomeToAdd);
+        DecimalFormat df = new DecimalFormat(Income.AMOUNTFORMAT);
+        this.totalIncomeLabel.setText("Total: $"+df.format(this.totalIncomeToAdd));
+    }
+
+    private void updateExpectedIncomes(Income income){
+        this.expectedIncomes.add(income);
 
         List<IncomeToAdd> incomeToAdds = this.expectedIncomes.stream()
                 .sorted(Comparator.comparing(Income::getType))
                 .map(this::incomeToIncomeToAdd).toList();
+
         this.earningsVBox.getChildren().clear();
         this.earningsVBox.getChildren().addAll(incomeToAdds);
-
-        this.ok(earning.getType().getName());
-
     }
 
     private IncomeToAdd incomeToIncomeToAdd(Income earning){
@@ -75,6 +106,8 @@ public class EarningsViewController implements Initializable {
             this.addToIncomeExpectedList(earning.getType());
             this.expectedIncomes.remove(earning);
             this.earningsVBox.getChildren().remove(incomeToAdd);
+            this.updateTotalExpectedIncome((total)->this.totalIncomeToAdd = total.subtract(earning.getExpectedAmount()));
+
         });
         return incomeToAdd;
     }

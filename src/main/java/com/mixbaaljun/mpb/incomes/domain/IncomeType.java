@@ -1,4 +1,4 @@
-package com.mixbaaljun.mpb;
+package com.mixbaaljun.mpb.incomes.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

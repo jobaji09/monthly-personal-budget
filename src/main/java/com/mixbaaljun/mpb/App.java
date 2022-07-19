@@ -27,6 +27,7 @@ public class App extends Application {
 
         Image icon = new Image(url.toString());
         stage.getIcons().add(icon);
+        stage.setResizable(false);
 
         stage.setTitle(titlename);
         stage.setIconified(false);

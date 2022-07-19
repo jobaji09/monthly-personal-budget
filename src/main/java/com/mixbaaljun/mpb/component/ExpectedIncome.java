@@ -1,7 +1,8 @@
 package com.mixbaaljun.mpb.component;
 
-import com.mixbaaljun.mpb.Income;
-import com.mixbaaljun.mpb.IncomeType;
+import com.mixbaaljun.mpb.incomes.domain.Income;
+import com.mixbaaljun.mpb.incomes.domain.IncomeType;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,7 +22,7 @@ public class ExpectedIncome extends HBox {
 
     private IncomeType incomeType;
 
-    private Consumer<List> onError;
+    private Consumer<List<String>> onError;
 
     private BiConsumer<Income,HBox> onAdded;
 
@@ -33,7 +34,7 @@ public class ExpectedIncome extends HBox {
         this.onAdded = onAdded;
     }
 
-    public void setOnError(Consumer<List> onError){
+    public void setOnError(Consumer<List<String>> onError){
         this.onError = onError;
     }
     public ExpectedIncome(IncomeType incomeType) {
@@ -69,7 +70,7 @@ public class ExpectedIncome extends HBox {
 
 
     private Income getValuesFromFields(){
-        BigDecimal earning = new BigDecimal(Double.parseDouble(this.incomeValue.getText()));
+        BigDecimal earning = new BigDecimal(String.format("%.2f",Double.parseDouble(this.incomeValue.getText()) ));
         return new Income(incomeType,earning,BigDecimal.ZERO);
 
     }
