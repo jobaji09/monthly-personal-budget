@@ -133,7 +133,6 @@ public class EarningsViewController implements Initializable {
 
     private void toIncomeExpectedList(){
         this.earningTypes = earningTypes.stream().sorted(IncomeType::compareTo).collect(Collectors.toList());
-        earningTypes.stream().forEach(System.out::println);
         List<ExpectedIncome> expectedIncomes =  earningTypes.stream().map(this::IncomeTypetoExpectedIncome).toList();
         this.incomeExpectedList.getChildren().clear();
         this.incomeExpectedList.getChildren().addAll(expectedIncomes);

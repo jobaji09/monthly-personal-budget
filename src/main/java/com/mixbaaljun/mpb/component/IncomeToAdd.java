@@ -20,7 +20,7 @@ public class IncomeToAdd extends HBox {
     private Consumer<ActionEvent> consumer;
     public IncomeToAdd(Income earning){
         super();
-        this.setAlignment(Pos.CENTER);
+        // this.setAlignment(Pos.CENTER);
         this.setId(earning.toString());
 
         this.typeLabel = new Label(earning.getType().getName());

@@ -17,5 +17,5 @@
 
 .scroll-pane > .corner {
       -fx-background-color: black;
-      -fx-alignment:center;
+      /* -fx-alignment:center; */
 }
