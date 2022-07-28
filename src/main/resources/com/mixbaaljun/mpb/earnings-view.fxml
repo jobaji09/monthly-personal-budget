@@ -19,7 +19,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="titleAddEarnings" layoutX="461.0" layoutY="9.0" prefHeight="100.0" prefWidth="417.0" text="Agrega tus ganancias por mes">
+                  <Label fx:id="titleAddEarnings" layoutX="461.0" layoutY="9.0" prefHeight="100.0" prefWidth="417.0" text="Agrega tus ingresos por mes">
                      <font>
                         <Font size="25.0" />
                      </font>

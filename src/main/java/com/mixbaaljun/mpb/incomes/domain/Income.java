@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Income {
 
-    public static final String AMOUNTFORMAT ="#,##0.00";
 
 
     private IncomeType type;

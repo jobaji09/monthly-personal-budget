@@ -1,9 +1,10 @@
 package com.mixbaaljun.mpb.controller;
 
-import com.mixbaaljun.mpb.component.ExpectedIncome;
-import com.mixbaaljun.mpb.component.IncomeToAdd;
+import com.mixbaaljun.mpb.components.ExpectedIncome;
+import com.mixbaaljun.mpb.components.IncomeToAdd;
 import com.mixbaaljun.mpb.incomes.domain.Income;
 import com.mixbaaljun.mpb.incomes.domain.IncomeType;
+import com.mixbaaljun.mpb.shared.Utils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,8 +21,6 @@ import java.text.DecimalFormat;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
-
-
 
 public class EarningsViewController implements Initializable {
 
@@ -47,7 +46,7 @@ public class EarningsViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.earningTypes =  new ArrayList<>(Arrays.asList(new IncomeType("Ahorro"),
+        this.earningTypes = new ArrayList<>(Arrays.asList(new IncomeType("Ahorro"),
                 new IncomeType("Sueldo"),
                 new IncomeType("Bonificaciones"),
                 new IncomeType("Intereses")));
@@ -55,11 +54,11 @@ public class EarningsViewController implements Initializable {
         this.totalIncomeLabel.setText("Total: $0.0");
         this.totalIncomeToAdd = BigDecimal.ZERO;
         this.ready.setOnAction(this::saveTotalExpectedIncomes);
-        
+
         this.toIncomeExpectedList();
     }
 
-    private void saveTotalExpectedIncomes(ActionEvent event){
+    private void saveTotalExpectedIncomes(ActionEvent event) {
         System.err.println("Hola");
     }
 
@@ -77,19 +76,19 @@ public class EarningsViewController implements Initializable {
         earningTypes.remove(typeToDelete);
 
         this.updateExpectedIncomes(earning);
-        this.updateTotalExpectedIncome((total)->this.totalIncomeToAdd = total.add(earning.getExpectedAmount()));
+        this.updateTotalExpectedIncome((total) -> this.totalIncomeToAdd = total.add(earning.getExpectedAmount()));
 
         this.ok(earning.getType().getName());
 
     }
 
-    private void updateTotalExpectedIncome(Consumer<BigDecimal> consumer){
+    private void updateTotalExpectedIncome(Consumer<BigDecimal> consumer) {
         consumer.accept(this.totalIncomeToAdd);
-        DecimalFormat df = new DecimalFormat(Income.AMOUNTFORMAT);
-        this.totalIncomeLabel.setText("Total: $"+df.format(this.totalIncomeToAdd));
+        String total = String.format("Total: %s", Utils.decimalForted(this.totalIncomeToAdd));
+        this.totalIncomeLabel.setText(total);
     }
 
-    private void updateExpectedIncomes(Income income){
+    private void updateExpectedIncomes(Income income) {
         this.expectedIncomes.add(income);
 
         List<IncomeToAdd> incomeToAdds = this.expectedIncomes.stream()
@@ -100,25 +99,23 @@ public class EarningsViewController implements Initializable {
         this.earningsVBox.getChildren().addAll(incomeToAdds);
     }
 
-    private IncomeToAdd incomeToIncomeToAdd(Income earning){
+    private IncomeToAdd incomeToIncomeToAdd(Income earning) {
         IncomeToAdd incomeToAdd = new IncomeToAdd(earning);
         incomeToAdd.setOnActionToButton((event) -> {
             this.addToIncomeExpectedList(earning.getType());
             this.expectedIncomes.remove(earning);
             this.earningsVBox.getChildren().remove(incomeToAdd);
-            this.updateTotalExpectedIncome((total)->this.totalIncomeToAdd = total.subtract(earning.getExpectedAmount()));
+            this.updateTotalExpectedIncome(
+                    (total) -> this.totalIncomeToAdd = total.subtract(earning.getExpectedAmount()));
 
         });
         return incomeToAdd;
     }
 
-
-
     private void addToIncomeExpectedList(IncomeType type) {
         this.earningTypes.add(type);
         this.toIncomeExpectedList();
     }
-
 
     private void sendErrorsToView(List<String> errors) {
         this.infoVbox.getChildren().clear();
@@ -129,11 +126,9 @@ public class EarningsViewController implements Initializable {
         });
     }
 
-
-
-    private void toIncomeExpectedList(){
+    private void toIncomeExpectedList() {
         this.earningTypes = earningTypes.stream().sorted(IncomeType::compareTo).collect(Collectors.toList());
-        List<ExpectedIncome> expectedIncomes =  earningTypes.stream().map(this::IncomeTypetoExpectedIncome).toList();
+        List<ExpectedIncome> expectedIncomes = earningTypes.stream().map(this::IncomeTypetoExpectedIncome).toList();
         this.incomeExpectedList.getChildren().clear();
         this.incomeExpectedList.getChildren().addAll(expectedIncomes);
     }

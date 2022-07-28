@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="341.0" prefWidth="215.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mixbaaljun.mpb.controller.VerticalBalanceController">
+  <children>
+    <Pane prefHeight="223.0" prefWidth="215.0">
+      <children>
+        <ProgressBar fx:id="vprogressbar" layoutX="-4.0" layoutY="90.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="43.0" prefWidth="223.0" progress="0.15" rotate="90.0" styleClass="progressbar" />
+      </children>
+    </Pane>
+    <Pane layoutY="223.0" prefHeight="118.0" prefWidth="215.0">
+      <children>
+        <Label fx:id="vbalance" alignment="CENTER" layoutX="4.0" layoutY="59.0" prefHeight="21.0" prefWidth="208.0" text="\$ 30,000,000.00">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+        <Label fx:id="vtitle" alignment="CENTER" layoutX="4.0" layoutY="14.0" prefHeight="36.0" prefWidth="208.0" text="Saldo actual del mes">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+      </children>
+    </Pane>
+  </children>
+</Pane>

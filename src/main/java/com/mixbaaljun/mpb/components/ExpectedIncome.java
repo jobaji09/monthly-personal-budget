@@ -1,4 +1,4 @@
-package com.mixbaaljun.mpb.component;
+package com.mixbaaljun.mpb.components;
 
 import com.mixbaaljun.mpb.incomes.domain.Income;
 import com.mixbaaljun.mpb.incomes.domain.IncomeType;

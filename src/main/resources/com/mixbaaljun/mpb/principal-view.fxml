@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mixbaaljun.mpb.controller.PrincipalController">
+   <children>
+      <VBox layoutX="316.0" layoutY="184.0" prefHeight="167.0" prefWidth="133.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="60.0" prefWidth="900.0">
+               <children>
+                  <Label alignment="TOP_LEFT" layoutX="17.0" layoutY="10.0" prefHeight="48.0" prefWidth="867.0" text="Presupuesto mensual" textFill="#f46424">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <HBox prefHeight="540.0" prefWidth="900.0">
+               <children>
+                  <VBox prefHeight="520.0" prefWidth="450.0">
+                     <children>
+                        <Pane prefHeight="370.0" prefWidth="450.0" style="-fx-padding: 5;">
+                           <children>
+                              <HBox fx:id="firstQuadrant" layoutX="14.0" layoutY="14.0" prefHeight="355.0" prefWidth="434.0" style="-fx-background-color: white;" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="160.0" prefWidth="450.0">
+                           <children>
+                              <VBox layoutX="14.0" prefHeight="150.0" prefWidth="434.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Label prefHeight="50.0" prefWidth="434.0" style="-fx-label-padding: 5;" text="Gastos">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" prefHeight="50.0" prefWidth="434.0">
+                                       <children>
+                                          <Label prefHeight="50.0" prefWidth="80.0" style="-fx-label-padding: 5;" text="Previsto" textFill="#576475">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="50.0" prefWidth="114.0" text="\$ 999,999.99" textFill="#576475">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ProgressBar prefHeight="30.0" prefWidth="225.0" progress="0.15" style="-fx-background-color: #A7B0BF; -fx-accent: #A7B0BF;" styleClass="progressbar" stylesheets="@application.css" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="50.0" prefWidth="434.0">
+                                       <children>
+                                          <Label prefHeight="50.0" prefWidth="80.0" style="-fx-label-padding: 5;" text="Previsto" textFill="#334960">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="50.0" prefWidth="114.0" text="\$ 999,999.99" textFill="#334960">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ProgressBar prefHeight="30.0" prefWidth="225.0" progress="0.19" style="-fx-background-color: #334960; -fx-accent: #334960;" styleClass="progressbar" stylesheets="@application.css" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="520.0" prefWidth="450.0">
+                     <children>
+                        <Pane prefHeight="370.0" prefWidth="450.0">
+                           <children>
+                              <Pane layoutX="2.0" layoutY="14.0" prefHeight="355.0" prefWidth="434.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Pane layoutY="14.0" prefHeight="167.0" prefWidth="434.0">
+                                       <children>
+                                          <Label alignment="CENTER" layoutX="136.0" layoutY="14.0" prefHeight="88.0" prefWidth="168.0" text="+30%" textFill="#85bb65">
+                                             <font>
+                                                <Font size="60.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="80.0" layoutY="102.0" prefHeight="35.0" prefWidth="280.0" text="aumento del ahorro total" textFill="#85bb65">
+                                             <font>
+                                                <Font name="System Italic" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Separator layoutX="117.0" layoutY="180.0" prefWidth="200.0" />
+                                    <Pane layoutY="188.0" prefHeight="167.0" prefWidth="434.0">
+                                       <children>
+                                          <Label alignment="CENTER" layoutX="6.0" prefHeight="94.0" prefWidth="422.0" text="\$123,000.00" textFill="#85bb65">
+                                             <font>
+                                                <Font size="60.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="77.0" layoutY="94.0" prefHeight="35.0" prefWidth="280.0" text="ahorrados este mes" textFill="#85bb65">
+                                             <font>
+                                                <Font name="System Italic" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="160.0" prefWidth="450.0">
+                           <children>
+                              <VBox fx:id="principalIncomesContainer" layoutX="2.0" prefHeight="150.0" prefWidth="434.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Label prefHeight="50.0" prefWidth="434.0" style="-fx-label-padding: 5;" text="Ingresos">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

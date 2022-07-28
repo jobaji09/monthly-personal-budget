@@ -1,4 +1,5 @@
 module com.mixbaaljun.mpb {
+    requires transitive javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
@@ -8,7 +9,7 @@ module com.mixbaaljun.mpb {
     exports com.mixbaaljun.mpb;
     opens com.mixbaaljun.mpb.controller to javafx.fxml;
     exports com.mixbaaljun.mpb.controller;
-    exports com.mixbaaljun.mpb.component;
+    exports com.mixbaaljun.mpb.components;
     exports com.mixbaaljun.mpb.incomes.domain;
 
 }

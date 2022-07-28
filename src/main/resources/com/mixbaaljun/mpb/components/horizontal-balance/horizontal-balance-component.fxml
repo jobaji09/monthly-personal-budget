@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" prefHeight="50.0" prefWidth="434.0"
+  xmlns="http://javafx.com/javafx/18"
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mixbaaljun.mpb.controller.HorizontalBalanceController">
+  <children>
+    <Label fx:id="titlehpb" prefHeight="50.0" prefWidth="80.0" style="-fx-label-padding: 5;" text="Previsto" textFill="#334960">
+      <font>
+        <Font size="18.0" />
+      </font>
+    </Label>
+    <Label fx:id="balancehpb" prefHeight="50.0" prefWidth="114.0" text="\$ 999,999.99" textFill="#334960">
+      <font>
+        <Font size="18.0" />
+      </font>
+    </Label>
+    <ProgressBar fx:id="processbarhpb" prefHeight="30.0" prefWidth="225.0" progress="0.43" style="-fx-background-color: #334960; -fx-accent: #334960;" styleClass="progressbar" />
+  </children>
+</HBox>

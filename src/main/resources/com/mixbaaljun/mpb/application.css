@@ -1,4 +1,4 @@
-.scroll-pane > .viewport {  //not .scrollpane but .scroll-pane
+.scroll-pane > .viewport {  /*not .scrollpane but .scroll-pane*/
    -fx-background-color: transparent;
 }
 
@@ -19,3 +19,15 @@
       -fx-background-color: black;
       /* -fx-alignment:center; */
 }
+
+#firstQuadrant{
+    -fx-padding: 10 0 0 0;
+}
+
+.progressbar{
+    -fx-border-color: #FFF; 
+    -fx-background-radius: 0; 
+    -fx-text-box-border: transparent; 
+    -fx-control-inner-background: transparent; 
+    -fx-background-insets: 0;
+  }

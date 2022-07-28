@@ -1,7 +1,6 @@
-package com.mixbaaljun.mpb.component;
+package com.mixbaaljun.mpb.components;
 
 import javafx.event.ActionEvent;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -10,6 +9,7 @@ import java.text.DecimalFormat;
 import java.util.function.Consumer;
 
 import com.mixbaaljun.mpb.incomes.domain.Income;
+import com.mixbaaljun.mpb.shared.Utils;
 
 public class IncomeToAdd extends HBox {
 
@@ -20,15 +20,13 @@ public class IncomeToAdd extends HBox {
     private Consumer<ActionEvent> consumer;
     public IncomeToAdd(Income earning){
         super();
-        // this.setAlignment(Pos.CENTER);
         this.setId(earning.toString());
 
         this.typeLabel = new Label(earning.getType().getName());
         typeLabel.setMinWidth(140);
 
-        DecimalFormat df = new DecimalFormat(Income.AMOUNTFORMAT);
 
-        this.earningLabel = new Label("$"+df.format(earning.getExpectedAmount()));
+        this.earningLabel = new Label(Utils.decimalForted(earning.getExpectedAmount()));
         earningLabel.setMinWidth(140); 
 
         this.delete = new Button();
