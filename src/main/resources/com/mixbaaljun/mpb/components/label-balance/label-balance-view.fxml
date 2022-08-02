@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="60.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mixbaaljun.mpb.controller.LabelBalanceController">
+   <children>
+      <Pane prefHeight="20.0" prefWidth="400.0">
+         <children>
+            <Label fx:id="titleLabelBalance" layoutX="5.0" layoutY="2.5" prefHeight="15.0" prefWidth="390.0" text="Bonificaciones">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <HBox prefHeight="40.0" prefWidth="400.0">
+         <children>
+            <Pane prefHeight="40.0" prefWidth="350.0">
+               <children>
+                  <Label fx:id="labelBalance" layoutX="6.0" layoutY="4.0" prefHeight="25.0" prefWidth="340.0" text="\$999.999,999.99">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="40.0" prefWidth="50.0">
+               <children>
+                  <Button fx:id="buttonBalance" layoutX="5.0" layoutY="7.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="❌" textFill="#f46424" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

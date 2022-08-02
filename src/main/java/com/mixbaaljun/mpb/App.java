@@ -4,19 +4,16 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 
-import com.mixbaaljun.mpb.components.VBalanceProgressBar;
-
 public class App extends Application {
 
     private static final String titlename = "Tu presupuesto personal mensual";
 
-    private static final String PRINCIPALCOMPONENT = "principal-view.fxml";
+    private static final String PRINCIPALCOMPONENT = "add-view.fxml";
 
     @Override
     public void start(Stage stage) throws IOException {
