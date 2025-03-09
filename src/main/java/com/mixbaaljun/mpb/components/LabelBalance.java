@@ -10,7 +10,6 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.UUID;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 import com.mixbaaljun.mpb.controller.LabelBalanceController;
 import com.mixbaaljun.mpb.incomes.domain.Income;

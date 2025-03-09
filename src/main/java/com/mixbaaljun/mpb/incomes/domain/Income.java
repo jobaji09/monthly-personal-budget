@@ -10,8 +10,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Income {
 
-
-
     private IncomeType type;
     private BigDecimal expectedAmount;
     private BigDecimal realAmount;

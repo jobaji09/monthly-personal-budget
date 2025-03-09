@@ -61,9 +61,6 @@ public class InputBalance extends Pane {
   }
 
   private void addIncomeOnAction(ActionEvent event) {
-    
-    
-    
 
     Optional<BigDecimal> expected = this.controller.getIncomeValue();
     if (!expected.isPresent()) {
