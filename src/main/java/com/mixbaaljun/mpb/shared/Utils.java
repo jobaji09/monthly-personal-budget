@@ -15,6 +15,19 @@ public final class Utils {
 
   }
 
+  public static String toMoneyformat(String number) {
+    BigDecimal bigDecimal = BigDecimal.valueOf(Double.valueOf(number));
+    DecimalFormat df = new DecimalFormat(AMOUNTFORMAT);
+    return String.format("$ %s", df.format(bigDecimal));
+
+  }
+
+  public static String toMoneyformat(Double number) {
+    DecimalFormat df = new DecimalFormat(AMOUNTFORMAT);
+    return String.format("$ %s", df.format(number));
+
+  }
+
   public static URL getUrl(String path) {
 
     URL url = Utils.class.getClassLoader().getResource(String.format("com/mixbaaljun/mpb/%s",

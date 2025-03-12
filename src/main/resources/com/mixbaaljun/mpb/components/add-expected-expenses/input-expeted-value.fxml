@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="expectedCategoryType" minHeight="30.0" minWidth="159.0" prefHeight="30.0" prefWidth="154.0" style="-fx-padding: 0px 5px;" text="Categoría" textFill="#334960">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
+      <TextField fx:id="expectedValue" minHeight="30.0" minWidth="310.0" />
+   </children>
+</HBox>

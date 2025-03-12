@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="100.0" minWidth="300.0" style="-fx-padding: 10px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mixbaaljun.mpb.controller.AddIncomeController">
+   <children>
+      <Label alignment="CENTER_RIGHT" minHeight="50.0" minWidth="100.0" text="Tu saldo inicial: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="intialIncomeField" minHeight="50.0" minWidth="200.0" />
+   </children>
+</HBox>

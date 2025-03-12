@@ -12,7 +12,7 @@ public final class VBalanceProgressBar {
   private Pane component;
   private VerticalBalanceController controller;
 
-  public VBalanceProgressBar(String title, String balance, String color) throws IOException {
+  public VBalanceProgressBar(String title, Double balance, Double max, String color) throws IOException {
 
     FXMLLoader fxmlLoader = new FXMLLoader(
         getClass().getResource("vertical-balance/vertical-balance-component.fxml"));
@@ -22,6 +22,13 @@ public final class VBalanceProgressBar {
     this.controller.setTitle(title);
     this.controller.setTextColor(color);
     this.controller.setProgressBarColor(color);
+
+    this.controller.setBalance(balance, max);
+
+  }
+
+  public void updateProgressBar(Double balance, Double max) {
+    this.controller.setBalance(balance, max);
   }
 
   public Pane getComponent() {

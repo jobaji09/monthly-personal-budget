@@ -31,3 +31,7 @@
     -fx-control-inner-background: transparent; 
     -fx-background-insets: 0;
   }
+
+#incomeLabel:hover {
+    -fx-background-color: #ebedef;
+}

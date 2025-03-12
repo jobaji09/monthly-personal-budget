@@ -13,7 +13,7 @@ public class App extends Application {
 
     private static final String titlename = "Tu presupuesto personal mensual";
 
-    private static final String PRINCIPALCOMPONENT = "add-view.fxml";
+    private static final String PRINCIPALCOMPONENT = "principal-view.fxml";
 
     @Override
     public void start(Stage stage) throws IOException {
