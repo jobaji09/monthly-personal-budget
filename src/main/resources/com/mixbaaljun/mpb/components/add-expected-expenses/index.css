@@ -1,0 +1,8 @@
+.expected-input-text{
+  -fx-padding: 5px 0px;
+}
+
+
+.expected-container{
+  -fx-background-color:  #ebedef;
+}

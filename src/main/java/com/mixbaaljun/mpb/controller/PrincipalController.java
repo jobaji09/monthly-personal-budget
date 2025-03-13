@@ -27,10 +27,16 @@ public final class PrincipalController implements Initializable {
   private VBox principalIncomesContainer;
 
   @FXML
+  private VBox principalExpensesContainer;
+
+  @FXML
   private HBox firstQuadrant;
 
   @FXML
   private Button addExpenseId;
+
+  @FXML
+  private Button addExpectedExpences;
 
   @FXML
   private HBox initialIncomeContainer;
@@ -43,12 +49,22 @@ public final class PrincipalController implements Initializable {
   private VBalanceProgressBar initialProgressBar;
   private VBalanceProgressBar finalProgressBar;
 
+  private HBalanceProcessBar expectedExpensesProcessBar;
+  private HBalanceProcessBar expensesProcessBar;
+
+  private HBalanceProcessBar expectedIncomesProcessBar;
+  private HBalanceProcessBar incomesProcessBar;
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 
     this.initUserData();
 
     try {
+
+      this.addExpectedExpences.setOnAction((event) -> {
+
+      });
 
       this.addExpenseId.setOnAction((event) -> {
         DialogAddExpense dialog = new DialogAddExpense();
@@ -73,10 +89,7 @@ public final class PrincipalController implements Initializable {
         }
       });
 
-      // HBalanceProcessBar processBar = ;
-      this.principalIncomesContainer.getChildren().addAll(Arrays.asList(
-          (new HBalanceProcessBar("Previsto", "#f46524")).getComponent(),
-          (new HBalanceProcessBar("Previsto", "#000000")).getComponent()));
+      this.initHorizontalProcessBars();
 
       this.initFirstQuadrant();
 
@@ -84,6 +97,34 @@ public final class PrincipalController implements Initializable {
       System.err.println("Error--->>" + e.getMessage());
     }
 
+  }
+
+  private void initHorizontalProcessBars() throws IOException {
+
+    Double maxExpenses = Math.max(this.budgetDTO.getTotalExpetedExpenses().doubleValue(),
+        this.budgetDTO.getTotalExpenses().doubleValue());
+
+    Double maxIncomes = Math.max(this.budgetDTO.getTotalExpetedIncomes().doubleValue(),
+        this.budgetDTO.getTotalIncomes().doubleValue());
+
+    this.expectedIncomesProcessBar = new HBalanceProcessBar("Previsto",
+        this.budgetDTO.getTotalExpetedIncomes().doubleValue(), maxIncomes, "#334960");
+    this.incomesProcessBar = new HBalanceProcessBar("Real", this.budgetDTO.getTotalIncomes().doubleValue(), maxIncomes,
+        "#f46524");
+
+    this.expectedExpensesProcessBar = new HBalanceProcessBar("Previsto",
+        this.budgetDTO.getTotalExpetedExpenses().doubleValue(),
+        maxExpenses, "#334960");
+    this.expensesProcessBar = new HBalanceProcessBar("Real", this.budgetDTO.getTotalExpenses().doubleValue(),
+        maxExpenses, "#f46524");
+
+    this.principalIncomesContainer.getChildren().addAll(Arrays.asList(
+        this.expectedIncomesProcessBar.getComponent(),
+        this.incomesProcessBar.getComponent()));
+
+    this.principalExpensesContainer.getChildren().addAll(Arrays.asList(
+        this.expectedExpensesProcessBar.getComponent(),
+        this.expensesProcessBar.getComponent()));
   }
 
   private void initUserData() {
@@ -114,6 +155,11 @@ public final class PrincipalController implements Initializable {
 
     this.initialProgressBar.updateProgressBar(this.budgetDTO.getInitialBalance().doubleValue(), max);
     this.finalProgressBar.updateProgressBar(this.budgetDTO.getBalance().doubleValue(), max);
+
+    Double maxExpenses = Math.max(this.budgetDTO.getTotalExpetedExpenses().doubleValue(),
+        this.budgetDTO.getTotalExpenses().doubleValue());
+
+    this.expensesProcessBar.setProcessBar(this.budgetDTO.getTotalExpenses().doubleValue(), maxExpenses);
   }
 
 }
