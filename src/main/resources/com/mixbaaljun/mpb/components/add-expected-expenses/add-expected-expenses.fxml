@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" styleClass="expected-container" stylesheets="@index.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" styleClass="expected-container" stylesheets="@index.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mixbaaljun.mpb.controller.AddExpectedExpensesController">
    <children>
       <HBox prefHeight="50.0" style="-fx-padding: 0px 10px;">
          <children>
@@ -35,7 +35,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="foodField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
             <HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" styleClass="expected-input-text">
@@ -46,7 +46,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="givesTextField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
             <HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" styleClass="expected-input-text">
@@ -57,7 +57,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="healthTextField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
             <HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" styleClass="expected-input-text">
@@ -68,7 +68,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="houseTextField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
             <HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" styleClass="expected-input-text">
@@ -79,7 +79,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="trasportTextField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
             <HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" styleClass="expected-input-text">
@@ -90,7 +90,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="personalTextField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
             <HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" styleClass="expected-input-text">
@@ -101,7 +101,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="petTextField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
             <HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" styleClass="expected-input-text">
@@ -112,7 +112,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="suppliesTextField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
             <HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" styleClass="expected-input-text">
@@ -123,7 +123,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="tripsTextField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
             <HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" styleClass="expected-input-text">
@@ -134,7 +134,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="deptTextField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
             <HBox minHeight="30.0" prefHeight="30.0" style="-fx-padding: 0px 10px;" styleClass="expected-input-text">
@@ -145,7 +145,7 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="5.0" />
-                  <TextField minHeight="30.0" minWidth="310.0" />
+                  <TextField fx:id="othersTextField" minHeight="30.0" minWidth="310.0" />
                </children>
             </HBox>
          </children>

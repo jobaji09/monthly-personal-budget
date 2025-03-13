@@ -11,13 +11,10 @@ import com.mixbaaljun.mpb.incomes.domain.Expense;
 import com.mixbaaljun.mpb.incomes.domain.ExpenseCategory;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import javafx.scene.input.InputMethodEvent;
 
 public class AddExpenseController implements Initializable {
 

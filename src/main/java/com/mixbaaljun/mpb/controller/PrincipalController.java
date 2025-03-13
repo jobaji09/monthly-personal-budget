@@ -4,15 +4,18 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.mixbaaljun.mpb.DTO.BudgetDTO;
+import com.mixbaaljun.mpb.components.DialogAddExpectedExpenses;
 import com.mixbaaljun.mpb.components.DialogAddExpense;
 import com.mixbaaljun.mpb.components.DialogAddInitialIncome;
 import com.mixbaaljun.mpb.components.HBalanceProcessBar;
 import com.mixbaaljun.mpb.components.VBalanceProgressBar;
 import com.mixbaaljun.mpb.incomes.domain.Expense;
+import com.mixbaaljun.mpb.incomes.domain.ExpenseCategory;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,9 +37,6 @@ public final class PrincipalController implements Initializable {
 
   @FXML
   private Button addExpenseId;
-
-  @FXML
-  private Button addExpectedExpences;
 
   @FXML
   private HBox initialIncomeContainer;
@@ -61,10 +61,6 @@ public final class PrincipalController implements Initializable {
     this.initUserData();
 
     try {
-
-      this.addExpectedExpences.setOnAction((event) -> {
-
-      });
 
       this.addExpenseId.setOnAction((event) -> {
         DialogAddExpense dialog = new DialogAddExpense();
@@ -125,10 +121,20 @@ public final class PrincipalController implements Initializable {
     this.principalExpensesContainer.getChildren().addAll(Arrays.asList(
         this.expectedExpensesProcessBar.getComponent(),
         this.expensesProcessBar.getComponent()));
+
+    this.expectedExpensesProcessBar.getComponent().setOnMouseClicked((event) -> {
+      DialogAddExpectedExpenses dialog = new DialogAddExpectedExpenses(this.budgetDTO.getExpetedExpenses());
+      Optional<Map<ExpenseCategory, BigDecimal>> result = dialog.getDialog().showAndWait();
+      if (result.isPresent()) {
+        Map<ExpenseCategory, BigDecimal> values = result.get();
+        this.budgetDTO.setExpetedExpenses(values);
+        this.updateProgressBar();
+
+      }
+    });
   }
 
   private void initUserData() {
-    // TODO load data form db
     this.budgetDTO = new BudgetDTO();
 
     this.incomeLabel.setText(this.budgetDTO.getFormatedInitialBalance());
@@ -160,6 +166,7 @@ public final class PrincipalController implements Initializable {
         this.budgetDTO.getTotalExpenses().doubleValue());
 
     this.expensesProcessBar.setProcessBar(this.budgetDTO.getTotalExpenses().doubleValue(), maxExpenses);
+    this.expectedExpensesProcessBar.setProcessBar(this.budgetDTO.getTotalExpetedExpenses().doubleValue(), maxExpenses);
   }
 
 }

@@ -23,7 +23,7 @@ public class BudgetDTO {
   private BigDecimal totalIncomes;
   private BigDecimal totalExpetedIncomes;
   private List<Expense> expenses;
-  private Map<ExpenseCategory, Expense> expetedExpenses;
+  private Map<ExpenseCategory, BigDecimal> expetedExpenses;
 
   public BudgetDTO() {
     this.balance = BigDecimal.ZERO;
@@ -34,6 +34,14 @@ public class BudgetDTO {
     this.totalExpetedIncomes = BigDecimal.ZERO;
     this.expenses = new ArrayList<>();
     this.expetedExpenses = new HashMap<>();
+  }
+
+  public void setExpetedExpenses(Map<ExpenseCategory, BigDecimal> expetedExpenses) {
+    this.expetedExpenses = expetedExpenses;
+    this.totalExpetedExpenses = BigDecimal.ZERO;
+    for (ExpenseCategory expenseCategory : ExpenseCategory.values()) {
+      this.totalExpetedExpenses = this.totalExpetedExpenses.add(this.expetedExpenses.get(expenseCategory));
+    }
   }
 
   public String getFormatedBalance() {

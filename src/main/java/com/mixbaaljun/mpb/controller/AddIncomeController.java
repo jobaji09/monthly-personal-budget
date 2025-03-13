@@ -14,7 +14,7 @@ public class AddIncomeController implements Initializable {
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    intialIncomeField.setPromptText("MX $");
+    intialIncomeField.setPromptText("$");
   }
 
   public void setIntialIncomePrompt(String income) {
