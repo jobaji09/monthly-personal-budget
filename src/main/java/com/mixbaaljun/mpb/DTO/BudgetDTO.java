@@ -6,9 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import com.mixbaaljun.mpb.incomes.domain.Expense;
-import com.mixbaaljun.mpb.incomes.domain.ExpenseCategory;
 import com.mixbaaljun.mpb.shared.Utils;
 
 import lombok.Data;
@@ -24,6 +25,7 @@ public class BudgetDTO {
   private BigDecimal totalExpetedIncomes;
   private List<Expense> expenses;
   private Map<ExpenseCategory, BigDecimal> expetedExpenses;
+  private Map<ExpenseCategory, BigDecimal> totalExpensesByCategory;
 
   public BudgetDTO() {
     this.balance = BigDecimal.ZERO;
@@ -34,6 +36,7 @@ public class BudgetDTO {
     this.totalExpetedIncomes = BigDecimal.ZERO;
     this.expenses = new ArrayList<>();
     this.expetedExpenses = new HashMap<>();
+    this.totalExpensesByCategory = new HashMap<>();
   }
 
   public void setExpetedExpenses(Map<ExpenseCategory, BigDecimal> expetedExpenses) {
@@ -71,5 +74,24 @@ public class BudgetDTO {
     this.expenses.add(expense);
     this.totalExpenses = this.totalExpenses.add(expense.getExpense());
     this.balance = this.initialBalance.add(totalIncomes.subtract(this.totalExpenses));
+
+    BigDecimal totalByCategory = Optional.ofNullable(this.totalExpensesByCategory.get(expense.getCategory()))
+        .orElse(BigDecimal.ZERO);
+
+    this.totalExpensesByCategory.put(expense.getCategory(), totalByCategory.add(expense.getExpense()));
+
+  }
+
+  public List<ExpenseDetailDTO> getDetails() {
+
+    return Stream.of(ExpenseCategory.values())
+        .map((category) -> {
+          return ExpenseDetailDTO
+              .builder()
+              .category(category)
+              .expectedValue(this.expetedExpenses.getOrDefault(category, BigDecimal.ZERO))
+              .expense(this.totalExpensesByCategory.getOrDefault(category, BigDecimal.ZERO))
+              .build();
+        }).collect(Collectors.toList());
   }
 }

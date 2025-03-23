@@ -2,10 +2,11 @@ package com.mixbaaljun.mpb.components;
 
 import java.io.IOException;
 
+import com.mixbaaljun.mpb.DTO.Expense;
 import com.mixbaaljun.mpb.controller.AddExpenseController;
-import com.mixbaaljun.mpb.incomes.domain.Expense;
 import com.mixbaaljun.mpb.shared.Utils;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -32,6 +33,12 @@ public class DialogAddExpense {
     }
     this.addExpenseController = fxmlLoader.getController();
     this.dialog.getDialogPane().setContent(this.child);
+
+    this.dialog.setOnShown(event -> {
+      Platform.runLater(this.addExpenseController::requestFocus);
+      event.consume();
+    });
+
     Button okButton = (Button) this.dialog.getDialogPane().lookupButton(ButtonType.OK);
     okButton.addEventFilter(ActionEvent.ACTION, (event) -> {
       if (!addExpenseController.hasAllFields()) {

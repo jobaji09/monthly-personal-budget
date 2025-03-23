@@ -2,16 +2,14 @@ package com.mixbaaljun.mpb.components;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import com.mixbaaljun.mpb.DTO.Income;
+import com.mixbaaljun.mpb.DTO.IncomeType;
 import com.mixbaaljun.mpb.controller.InputBalanceController;
-import com.mixbaaljun.mpb.incomes.domain.Income;
-import com.mixbaaljun.mpb.incomes.domain.IncomeType;
 import com.mixbaaljun.mpb.shared.Utils;
 
 import javafx.event.ActionEvent;

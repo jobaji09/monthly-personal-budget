@@ -4,9 +4,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Map;
 
+import com.mixbaaljun.mpb.DTO.ExpenseCategory;
 import com.mixbaaljun.mpb.controller.AddExpectedExpensesController;
-import com.mixbaaljun.mpb.incomes.domain.Expense;
-import com.mixbaaljun.mpb.incomes.domain.ExpenseCategory;
 import com.mixbaaljun.mpb.shared.Utils;
 
 import javafx.event.ActionEvent;

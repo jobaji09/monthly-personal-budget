@@ -2,13 +2,11 @@ package com.mixbaaljun.mpb.controller;
 
 import java.math.BigDecimal;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import com.mixbaaljun.mpb.incomes.domain.Expense;
-import com.mixbaaljun.mpb.incomes.domain.ExpenseCategory;
+import com.mixbaaljun.mpb.DTO.Expense;
+import com.mixbaaljun.mpb.DTO.ExpenseCategory;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -42,8 +40,7 @@ public class AddExpenseController implements Initializable {
   }
 
   public boolean hasAllFields() {
-    return !this.expenseValueId.getText().isEmpty() && !this.descriptionValueId.getText().isEmpty()
-        && Objects.nonNull(categoryIndex);
+    return !this.expenseValueId.getText().isEmpty() && Objects.nonNull(categoryIndex);
   }
 
   public Expense getValues() {
@@ -55,6 +52,10 @@ public class AddExpenseController implements Initializable {
         .category(ExpenseCategory.fromIndex(this.categoryIndex))
         .build();
 
+  }
+
+  public void requestFocus() {
+    this.expenseValueId.requestFocus();
   }
 
 }

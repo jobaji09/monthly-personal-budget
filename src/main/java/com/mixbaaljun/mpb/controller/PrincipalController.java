@@ -9,13 +9,14 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.mixbaaljun.mpb.DTO.BudgetDTO;
+import com.mixbaaljun.mpb.DTO.Expense;
+import com.mixbaaljun.mpb.DTO.ExpenseCategory;
 import com.mixbaaljun.mpb.components.DialogAddExpectedExpenses;
 import com.mixbaaljun.mpb.components.DialogAddExpense;
 import com.mixbaaljun.mpb.components.DialogAddInitialIncome;
 import com.mixbaaljun.mpb.components.HBalanceProcessBar;
+import com.mixbaaljun.mpb.components.SceneExpensesDetail;
 import com.mixbaaljun.mpb.components.VBalanceProgressBar;
-import com.mixbaaljun.mpb.incomes.domain.Expense;
-import com.mixbaaljun.mpb.incomes.domain.ExpenseCategory;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -130,6 +131,16 @@ public final class PrincipalController implements Initializable {
         this.budgetDTO.setExpetedExpenses(values);
         this.updateProgressBar();
 
+      }
+    });
+
+    this.expensesProcessBar.getComponent().setOnMouseClicked((event) -> {
+      SceneExpensesDetail detail = new SceneExpensesDetail(this.budgetDTO.getDetails());
+
+      try {
+        detail.show();
+      } catch (IOException e) {
+        e.printStackTrace();
       }
     });
   }

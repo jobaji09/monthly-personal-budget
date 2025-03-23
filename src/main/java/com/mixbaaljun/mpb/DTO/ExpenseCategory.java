@@ -1,4 +1,4 @@
-package com.mixbaaljun.mpb.incomes.domain;
+package com.mixbaaljun.mpb.DTO;
 
 import java.util.stream.Stream;
 
@@ -11,7 +11,7 @@ public enum ExpenseCategory {
   TRASPORT(4, "Transporte"),
   PERSONAL(5, "Gastos personales"),
   PET(6, "Mascotas"),
-  SUPPLIES(7, "Suministros (luz, agua, gas, etc.)"),
+  SUPPLIES(7, "Suministros"),
   TRIPS(8, "Viajes"),
   DEPT(9, "Deuda"),
   OTHERS(10, "Otros");

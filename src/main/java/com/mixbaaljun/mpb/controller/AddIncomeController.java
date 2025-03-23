@@ -30,4 +30,8 @@ public class AddIncomeController implements Initializable {
     return !this.intialIncomeField.getText().isEmpty();
   }
 
+  public void requestFocus() {
+    this.intialIncomeField.requestFocus();
+  }
+
 }

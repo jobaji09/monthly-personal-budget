@@ -17,6 +17,6 @@ module com.mixbaaljun.mpb {
 
     exports com.mixbaaljun.mpb.components;
 
-    exports com.mixbaaljun.mpb.incomes.domain;
+    exports com.mixbaaljun.mpb.DTO;
 
 }

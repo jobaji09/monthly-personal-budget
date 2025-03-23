@@ -1,9 +1,6 @@
 package com.mixbaaljun.mpb.components;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -11,8 +8,8 @@ import java.io.IOException;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
+import com.mixbaaljun.mpb.DTO.Income;
 import com.mixbaaljun.mpb.controller.LabelBalanceController;
-import com.mixbaaljun.mpb.incomes.domain.Income;
 import com.mixbaaljun.mpb.shared.Utils;
 
 public class LabelBalance extends Pane {

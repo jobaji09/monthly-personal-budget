@@ -1,23 +1,20 @@
 package com.mixbaaljun.mpb.controller;
 
+import com.mixbaaljun.mpb.DTO.Income;
+import com.mixbaaljun.mpb.DTO.IncomeType;
 import com.mixbaaljun.mpb.components.InputBalance;
 import com.mixbaaljun.mpb.components.LabelBalance;
-import com.mixbaaljun.mpb.incomes.domain.Income;
-import com.mixbaaljun.mpb.incomes.domain.IncomeType;
 import com.mixbaaljun.mpb.shared.Utils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.util.*;

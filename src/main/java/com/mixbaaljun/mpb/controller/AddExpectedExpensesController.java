@@ -7,8 +7,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import com.mixbaaljun.mpb.incomes.domain.Expense;
-import com.mixbaaljun.mpb.incomes.domain.ExpenseCategory;
+import com.mixbaaljun.mpb.DTO.ExpenseCategory;
 import com.mixbaaljun.mpb.shared.Utils;
 
 import javafx.fxml.FXML;

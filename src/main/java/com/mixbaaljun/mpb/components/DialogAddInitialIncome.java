@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-import com.mixbaaljun.mpb.controller.AddExpenseController;
 import com.mixbaaljun.mpb.controller.AddIncomeController;
 import com.mixbaaljun.mpb.shared.Utils;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -40,6 +40,11 @@ public class DialogAddInitialIncome {
 
     }
     this.dialog.getDialogPane().setContent(this.child);
+
+    this.dialog.setOnShown(event -> {
+      Platform.runLater(this.addIncomeController::requestFocus);
+      event.consume();
+    });
 
     Button okButton = (Button) this.dialog.getDialogPane().lookupButton(ButtonType.OK);
     okButton.addEventFilter(ActionEvent.ACTION, (event) -> {
