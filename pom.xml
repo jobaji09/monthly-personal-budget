@@ -13,18 +13,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.8.2</junit.version>
         <lombok-version>1.18.24</lombok-version>
+        <javafx-version>18.0.2</javafx-version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>17.0.1</version>
+            <version>${javafx-version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>17.0.1</version>
+            <version>${javafx-version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
