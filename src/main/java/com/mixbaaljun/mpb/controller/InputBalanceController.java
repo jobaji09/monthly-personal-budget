@@ -1,8 +1,5 @@
 package com.mixbaaljun.mpb.controller;
 
-import com.mixbaaljun.mpb.incomes.domain.Income;
-import com.mixbaaljun.mpb.incomes.domain.IncomeType;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

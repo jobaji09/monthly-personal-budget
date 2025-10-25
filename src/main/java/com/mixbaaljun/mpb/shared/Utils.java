@@ -3,8 +3,7 @@ package com.mixbaaljun.mpb.shared;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.text.DecimalFormat;
-
-import javafx.fxml.FXMLLoader;
+import java.util.Optional;
 
 public final class Utils {
 
@@ -18,6 +17,8 @@ public final class Utils {
 
   public static URL getUrl(String path) {
 
-    return Utils.class.getResource(String.format("/com/mixbaaljun/mpb/%s", path));
+    URL url = Utils.class.getClassLoader().getResource(String.format("com/mixbaaljun/mpb/%s",
+        path));
+    return Optional.ofNullable(url).orElseThrow();
   }
 }
